@@ -1,3 +1,8 @@
-﻿*.log
+﻿# Logs / backups / junk
+*.log
 *.bak
 *.tmp
+*.zip
+*.7z
+# PSReadLine history cache
+ConsoleHost_history.txt
