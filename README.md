@@ -71,7 +71,7 @@ Only expose custom ports (e.g., 5055, 5389) instead of the default 3389.
 
 Restrict access by IP if NAT is published externally.
 
-Restrict host firewall rules to trusted IP ranges if exposing RDP outside the host.\    
+Restrict host firewall rules to trusted IP ranges if exposing RDP outside the host\      
 _Always confirm firewall rules are scoped to trusted networks_.
 
 Consider disabling RDP when not actively in use for production VMs.
