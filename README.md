@@ -100,7 +100,50 @@ Consider disabling RDP when not actively in use for production VMs.
 
 ---
 
+### 🚀 Usage
+
+1. Configure NAT on Host 
+  ```
+host\create_nat.ps1
+
+```
+
+2. Add a Static RDP Mapping
+```
+host\map_rdp_port.ps1-VmIP 192.168.155.10 -Port 5389
+
+```
+
+3. Prepare Guest for RDP
+
+Inside the VM:
+```
+guest\enable_rdp.ps1
+guest\firewall_rules.ps1
+
+```
+
+4. Test Connectivity
+
+```
+utils\test_nat.ps1 -VmIP 192.168.155.10 -Port 5389
+
+```
+---
+
+
+
 ## 🧭 Architecture Flow
+
+
+
+Host 192.168.155.254 (vEthernet adapter)
+
+NAT forwards :5389 to guest 192.168.155.10:5389
+
+Host RDP runs separately on :5055
+
+
 
 [ Host LAN IP (192.168.1.76) :5389 ]
 │
