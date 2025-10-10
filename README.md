@@ -65,6 +65,41 @@ hyperv-nat-rdp-scripts/
 
 ---
 
+🚀 Usage
+1. Configure NAT on Host
+host\create_nat.ps1
+
+2. Add a Static RDP Mapping
+host\map_rdp_port.ps1 -VmIP 192.168.155.10 -Port 5389
+
+3. Prepare Guest for RDP
+
+Inside the VM:
+
+guest\enable_rdp.ps1
+guest\firewall_rules.ps1
+
+4. Test Connectivity
+utils\test_nat.ps1 -VmIP 192.168.155.10 -Port 5389
+
+---
+
+🛡️ Security Notes
+
+Only expose custom ports (e.g., 5055, 5389) instead of the default 3389.
+
+Restrict access by IP if NAT is published externally.
+
+Always confirm firewall rules are scoped to trusted networks.
+
+Consider disabling RDP when not actively in use for production VMs.
+
+---
+
+
+
+---
+
 # 🔌 Hyper-V NAT & RDP Automation Scripts
 
 [![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue)](https://docs.microsoft.com/powershell/)
@@ -104,6 +139,8 @@ cd hyperv-nat-rdp
 Test-NetConnection 192.168.155.10 -Port 5389
 ```
 
+---
+
 📂 Scripts Catalog
 
 Setup-NAT-RDP.ps1 → Creates NAT, external address range, and static mapping (host:5389 → guest:5389).
@@ -114,6 +151,8 @@ Enable-RDP-Guest.ps1 → Opens RDP on the guest, adjusts registry PortNumber, an
 
 Diagnostics.ps1 → Ping, TCP test, and ARP refresh to confirm connectivity.
 
+---
+
 
 🛠 Troubleshooting
 
@@ -123,13 +162,20 @@ Diagnostics.ps1 → Ping, TCP test, and ARP refresh to confirm connectivity.
 | Guest pings host but not vice-versa | `Request timed out`                                                         | Check firewall profile (`Private`) and ICMP rules                    |
 | RDP opens but no login screen       | NLA negotiation error                                                       | Ensure Remote Desktop is enabled + user is in `Remote Desktop Users` |
 
+---
+
 🤝 Contributing
 
 Pull requests welcome — especially for new test cases, multi-VM mappings, or cross-host setups.
 See CONTRIBUTING.md
  for details.
 
+ ---
+
 📜 License
 
 MIT License © 2025 Zinnia Labs
+
+
+
 
