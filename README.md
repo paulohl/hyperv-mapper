@@ -66,10 +66,10 @@ hyperv-nat-rdp-scripts/
 ---
 
 ### 🚀 Usage
-1. Configure NAT on Host\   
+1. Configure NAT on Host 
  
   ```
-3. /host\create_nat.ps1
+host\create_nat.ps1
 
 ```
 
