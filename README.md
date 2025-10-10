@@ -61,6 +61,9 @@ hyperv-nat-rdp-scripts/
     ├── quickstart.md
     ├── troubleshooting.md
     └── architecture-diagram.png
+```
+
+---
 
 # 🔌 Hyper-V NAT & RDP Automation Scripts
 
@@ -99,7 +102,7 @@ cd hyperv-nat-rdp
 
 # 3. Verify connectivity
 Test-NetConnection 192.168.155.10 -Port 5389
-
+```
 
 📂 Scripts Catalog
 
