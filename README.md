@@ -77,7 +77,14 @@ Consider disabling RDP when not actively in use for production VMs.
 
 ---
 
+#### 🧩 Example Topology
 
+
+```
+[ Host (192.168.155.254:5055) ]  <--NAT-->  [ Guest VM (192.168.155.10:5389) ]
+
+
+````
 
 ---
 
