@@ -65,7 +65,7 @@ hyperv-nat-rdp-scripts/
 
 ---
 
-🚀 Usage
+### 🚀 Usage
 1. Configure NAT on Host
 host\create_nat.ps1
 
@@ -84,7 +84,7 @@ utils\test_nat.ps1 -VmIP 192.168.155.10 -Port 5389
 
 ---
 
-🛡️ Security Notes
+### 🛡️ Security Notes
 
 Only expose custom ports (e.g., 5055, 5389) instead of the default 3389.
 
@@ -141,7 +141,7 @@ Test-NetConnection 192.168.155.10 -Port 5389
 
 ---
 
-📂 Scripts Catalog
+### 📂 Scripts Catalog
 
 Setup-NAT-RDP.ps1 → Creates NAT, external address range, and static mapping (host:5389 → guest:5389).
 
@@ -154,7 +154,7 @@ Diagnostics.ps1 → Ping, TCP test, and ARP refresh to confirm connectivity.
 ---
 
 
-🛠 Troubleshooting
+### 🛠 Troubleshooting
 
 | Symptom                             | Error Message                                                               | Fix                                                                  |
 | ----------------------------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -162,9 +162,11 @@ Diagnostics.ps1 → Ping, TCP test, and ARP refresh to confirm connectivity.
 | Guest pings host but not vice-versa | `Request timed out`                                                         | Check firewall profile (`Private`) and ICMP rules                    |
 | RDP opens but no login screen       | NLA negotiation error                                                       | Ensure Remote Desktop is enabled + user is in `Remote Desktop Users` |
 
+
 ---
 
-🤝 Contributing
+
+### 🤝 Contributing
 
 Pull requests welcome — especially for new test cases, multi-VM mappings, or cross-host setups.
 See CONTRIBUTING.md
@@ -172,7 +174,7 @@ See CONTRIBUTING.md
 
  ---
 
-📜 License
+## 📜 License
 
 MIT License © 2025 Zinnia Labs
 
