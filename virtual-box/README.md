@@ -17,7 +17,7 @@ VirtualBox has a built-in autostart mechanism, but it requires some configuratio
 VBoxManage setproperty autostartdbpath /etc/vbox
 
 ```
-
+\
 2. Allow your user to use autostart:
 
 ```bash
@@ -27,22 +27,21 @@ echo "YOUR_USER = {
 | sudo tee /etc/vbox/autostart.cfg
 
 ```
+\
 3. Configure the VM to autostart:
   
 ```bash
 VBoxManage modifyvm "YOUR_VM_NAME" --autostart-enabled on
 VBoxManage modifyvm "YOUR_VM_NAME" --autostart-delay 10
-
 ```
-
+\
 4. Enable VirtualBox autostart service (on systemd-based systems):
-
 ```bash
 sudo systemctl enable vboxautostart-service
 sudo systemctl start vboxautostart-service
 
 ```
-
+\
 #### 🪟 For Windows hosts:
 
 There’s no built-in VBox autostart service like on Linux, but you can use Task Scheduler:
@@ -56,15 +55,15 @@ There’s no built-in VBox autostart service like on Linux, but you can use Task
 ```bash
 C:\Program Files\Oracle\VirtualBox\VBoxManage.exe
 ```
-
+\
 6. Arguments:
 ```bash
 startvm "YOUR_VM_NAME" --type headless
 ```
-
+\
 7. Set it to run with highest privileges and for any user.
 
-
+\
 ### ✅ Step 3: Set VM to Power Back On After Unexpected Host Reboot
 
 If the VM is running and host crashes, you want it to restore:
@@ -75,12 +74,13 @@ If the VM is running and host crashes, you want it to restore:
 VBoxManage modifyvm "YOUR_VM_NAME" --defaultfrontend headless
 VBoxManage modifyvm "YOUR_VM_NAME" --acpi on
 ```
-
+\
 ### Optional:
 
 VBoxManage controlvm "YOUR_VM_NAME" savestate
 This ensures the VM resumes in the exact state it was.
 
+\
 ### ✅ Step 4: Write a Fallback Cronjob or Script (Linux Only)
 As an extra failsafe:
 Crontab reboot job:
@@ -90,11 +90,13 @@ Crontab reboot job:
 ```
 Or a systemd unit (if you're fancy).
 
+\
 ### ✅ Step 5: Guest VM OS Auto-Login (Optional)
 If your guest OS is a server or needs to resume apps:
 	• Set auto-login on boot (for Windows or Linux).
 	• Enable relevant services on startup.
 
+\
 ### 🧠 Bonus: Script to Start Multiple VMs
 ```bash
 #!/bin/bash
