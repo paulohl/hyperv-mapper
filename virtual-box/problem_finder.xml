@@ -1,0 +1,48 @@
+from lxml import etree
+import re, pandas as pd
+
+def scan_file(path):
+    parser = etree.XMLParser(remove_blank_text=True)
+    tree = etree.parse(path, parser)
+    root = tree.getroot()
+    problems = []
+    for elem in root.xpath("//*"):
+        text = (elem.text or "").strip()
+        if not text:
+            continue
+        tag = etree.QName(elem).localname
+        # collect day values
+        if tag in {"Day", "DayAccessed"}:
+            try:
+                val = int(text)
+            except ValueError:
+                problems.append((tag, text, "non-integer"))
+            else:
+                if not (1 <= val <= 31):
+                    problems.append((tag, text, "out-of-range"))
+        # capture any occurrence of '213'
+        if '213' in text:
+            problems.append((tag, text, "contains 213"))
+    return problems
+
+paths = [
+    "/mnt/data/Navigating_Upwork.xml",
+    "/mnt/data/Navigating_Upwork_clean.xml",
+    "/mnt/data/Navigating_Upwork_clean_strict.xml",
+]
+
+all_reports = {}
+for p in paths:
+    try:
+        probs = scan_file(p)
+    except Exception as e:
+        probs = [("PARSE_ERROR", str(e), p)]
+    all_reports[p] = probs
+
+# Build a DataFrame of problems
+rows = []
+for p, probs in all_reports.items():
+    for item in probs:
+        rows.append((p,)+item)
+df = pd.DataFrame(rows, columns=["file","tag","text","issue"])
+df
