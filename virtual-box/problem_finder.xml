@@ -26,9 +26,9 @@ def scan_file(path):
     return problems
 
 paths = [
-    "/mnt/data/Navigating_Upwork.xml",
-    "/mnt/data/Navigating_Upwork_clean.xml",
-    "/mnt/data/Navigating_Upwork_clean_strict.xml",
+    "/mnt/data/file-name.xml",
+    "/mnt/data/file-name_clean.xml",
+    "/mnt/data/file-name_clean_strict.xml",
 ]
 
 all_reports = {}
