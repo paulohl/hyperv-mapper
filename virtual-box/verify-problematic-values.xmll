@@ -1,0 +1,44 @@
+from lxml import etree
+
+path = "/mnt/data/file-name.xml"
+parser = etree.XMLParser(remove_blank_text=True)
+tree = etree.parse(path, parser)
+root = tree.getroot()
+
+def normalize_day_text(text):
+    t = (text or "").strip()
+    if not t:
+        return "01"
+    if t.isdigit():
+        n = int(t)
+        if 1 <= n <= 31:
+            return str(n).zfill(2).lstrip("0") or "0"  # keep as plain "1".."31"
+        # try last two digits heuristic
+        last2 = int(t[-2:])
+        if 1 <= last2 <= 31:
+            return str(last2)
+        return "01"
+    # fallback
+    return "01"
+
+# Fix Day and DayAccessed
+for elem in root.xpath("//*[local-name()='Day' or local-name()='DayAccessed']"):
+    elem.text = normalize_day_text(elem.text)
+
+# Save
+fixed2 = "/mnt/data/file-name_strict2.xml"
+tree.write(fixed2, pretty_print=True, xml_declaration=True, encoding="UTF-8")
+
+# Verify no problematic values remain
+tree2 = etree.parse(fixed2, parser)
+root2 = tree2.getroot()
+remaining = []
+for elem in root2.xpath("//*[local-name()='Day' or local-name()='DayAccessed']"):
+    try:
+        v = int((elem.text or '').strip())
+        if not (1 <= v <= 31):
+            remaining.append((etree.QName(elem).localname, elem.text))
+    except:
+        remaining.append((etree.QName(elem).localname, elem.text))
+
+remaining[:10], fixed2
