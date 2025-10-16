@@ -20,29 +20,39 @@ Make sure the __Extension Pack version exactly matches__ your VirtualBox version
 
 ## Add reliable “checkpoints” & logs when a VM misbehaves
 
-Below are drop-in steps + a tiny __watchdog__ that will 1) snapshot on each start, 2) log state changes, 3) collect VBox logs on failure, and 4) auto-restart a crashed/unknown VM. Everything is file-based so you can ship it to your GitHub “troubleshooting” folder.    
+Below are drop-in steps + a tiny __watchdog__ that will:    
+1) snapshot on each start,
+2) log state changes,
+3) collect VBox logs on failure, and
+4) auto-restart a crashed/unknown VM. Everything is file-based so you can ship it to your GitHub “troubleshooting” folder.     
 
 
 ### A) Turn on per-VM serial console to a file (super helpful)    
+```bash
+VBoxManage modifyvm "<VM_NAME>" --uart1 0x3F8 4
 
-VBoxManage modifyvm "<VM_NAME>" --uart1 0x3F8 4    
+```
+
+```bash    
 VBoxManage modifyvm "<VM_NAME>" --uartmode1 file "C:\VBoxLogs\<VM_NAME>\serial.log"
-- Many guests (esp. Linux, but Windows too with proper boot flags) will dump useful early-boot messages here even when the UI is frozen.    
+```
+
+- Many guests (esp. Linux, but Windows too with proper boot flags) will dump useful early-boot messages here even when the UI is frozen.
+ 
 
 ### B) Keep a rolling copy of VBox logs each run    
 VirtualBox already writes VBox.log, VBox.log.1… in the VM’s folder. We’ll copy them to a timestamped crash bundle whenever the VM isn’t “running”.     
 
-$$$ C) Auto-snapshot on every clean start (optional but great for repros)     
+### C) Auto-snapshot on every clean start (optional but great for repros)     
+```bash
 VBoxManage snapshot "<VM_NAME>" take "prestart-%DATE%-%TIME%" --live      
+```
+(If you prefer weekly/daily snapshots, we can trim old ones.)      
 
+### D) Lightweight Watchdog (PowerShell)      
 
-
-(If you prefer weekly/daily snapshots, we can trim old ones.)
-
-D) Lightweight Watchdog (PowerShell)
-
-Save as utils\watchdog.ps1:
-
+Save as utils\watchdog.ps1 (included):      
+```bash 
 param(
   [Parameter(Mandatory=$true)][string]$VmName,
   [string]$LogRoot = "C:\VBoxLogs"
@@ -89,7 +99,9 @@ if ($vmHome) {
 }
 
 # Windows event summary (System & Application last 200)
+  
 wevtutil epl System       (Join-Path $runDir "System.evtx") /q:"*[System[TimeCreated[timediff(@SystemTime) <= 3600000]]]"
+
 wevtutil epl Application  (Join-Path $runDir "Application.evtx") /q:"*[System[TimeCreated[timediff(@SystemTime) <= 3600000]]]"
 
 # Optional: take a pre-start snapshot (comment out if you don’t want snapshot spam)
@@ -103,37 +115,42 @@ $start | Out-File -Encoding utf8 (Join-Path $runDir "startvm.txt")
 Start-Sleep 5
 $state2 = Get-VMState $VmName
 "[$stamp] restart state=$state2" | Tee-Object -FilePath (Join-Path $vmDir "watchdog.log") -Append
-exit 0
+exit 0     
 
-E) Schedule it every 1–2 minutes
+```
 
-Create a Scheduled Task (as you did for your other labs) to run:
+### E) Schedule it every 1–2 minutes
 
-Program/script: powershell.exe
-Arguments: -NoProfile -ExecutionPolicy Bypass -File "C:\users\paulo\documents\dev\hyperv-mapper\utils\watchdog.ps1" -VmName "<VM_NAME>" -LogRoot "C:\VBoxLogs"
+Create a Scheduled Task (as you did for your other labs) to run:     
 
+Program/script: powershell.exe       
 
-Set Run whether user is logged on or not, and Run with highest privileges.
+Arguments:     
+```bash
+-NoProfile -ExecutionPolicy Bypass -File "C:\users\paulo\documents\dev\hyperv-mapper\utils\watchdog.ps1" -VmName "<VM_NAME>" -LogRoot "C:\VBoxLogs"
 
-Now each time the VM slips into aborted/unknown, you get a timestamped bundle:
+```     
 
-C:\VBoxLogs\<VM_NAME>\20251015-184958\
+- Set __Run whether user is logged on or not__, and __Run with highest privileges__.
+- Now each time the VM slips into aborted/unknown, you get a timestamped bundle:
+
+ <br>
+
+C:\VBoxLogs\<VM_NAME>\20251015-184958\     
+```bash    
     state.txt
     VBox.log / VBox.log.1 ...
     System.evtx / Application.evtx
     startvm.txt
 
+```
 
-Perfect for your “troubleshooting” repo.
+Perfect for the “troubleshooting” repo.
 
-Extra tips you’ll appreciate
+## Extra tips      
 
-Detect hardening failures instantly: if VBoxManage startvm fails but the GUI shows nothing, immediately open the latest VBoxHardening.log in the VM’s folder—those “Differences in section … Restored …” lines are smoking guns for DLL injection. 
+- __Detect hardening failures instantly__: if VBoxManage startvm fails but the GUI shows nothing, immediately open the latest VBoxHardening.log in the VM’s folder, those “Differences in section … Restored …” lines are smoking guns for DLL injection. (VBoxHardening.log)      
+- __When GA flaps a lot__ (“GA state really changed / doesn’t really changed” spam in VBoxUI.log), that’s typically additions/tools failing to initialize cleanly, often correlated with VBS/Hyper-V mode. (VBoxUI.log)     
+- __If you must keep Hyper-V__: try to keep the host lean (no overlays), stick to pure NIC types (virtio isn’t in VBox; use Intel PRO/1000 or paravirt where appropriate), and avoid host-USB filters that hook constantly.
 
-VBoxHardening
-
-When GA flaps a lot (“GA state really changed / doesn’t really changed” spam in VBoxUI.log), that’s typically additions/tools failing to initialize cleanly—often correlated with VBS/Hyper-V mode. 
-
-VBoxUI
-
-If you must keep Hyper-V: try to keep the host lean (no overlays), stick to pure NIC types (virtio isn’t in VBox; use Intel PRO/1000 or paravirt where appropriate), and avoid host-USB filters that hook constantly.
+______________________________
