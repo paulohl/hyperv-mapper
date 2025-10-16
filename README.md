@@ -46,24 +46,27 @@ C:\VBoxLogs\WinDev2407Eval\
 │  ├─ startvm.txt     
 │  └─ snapshot.txt      
 
-🧠 Why It Matters
+### 🧠 Why It Matters
 
 VirtualBox VMs can enter Unknown or Aborted states silently — especially on Windows 11 hosts with Core Isolation or Hyper-V enabled.
 This utility ensures stability, forensic traceability, and fully unattended recovery.
 
-🔐 Notes
+### 🔐 Notes
 
-Tested on Windows 10/11 hosts with VirtualBox ≥ 7.0.14
-
-Requires VBoxManage.exe in PATH
-
-Logs are stored locally — no remote uploads
-
-Safe to schedule as SYSTEM; no network credentials needed
+- Tested on Windows 10/11 hosts with VirtualBox ≥ 7.0.14
+- Requires VBoxManage.exe in PATH
+- Logs are stored locally — no remote uploads
+- Safe to schedule as SYSTEM; no network credentials needed
 
 
+_____________
+_____________
+_____________
+_____________
 
-hyperv-mapper/      <br>
+
+hyperv-mapper/      
+<br>
 ├─ docs/     
 │  ├─ HVMAPPER.md      
 │  ├─ README.md       
