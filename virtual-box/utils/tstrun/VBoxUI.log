@@ -1,0 +1,91 @@
+00:00:00.351237 VirtualBox GUI (separate) 7.1.6 r167084 win.amd64 (Jan 21 2025 14:13:52) release log
+00:00:00.351239 Log opened 2025-10-15T18:49:58.145139700Z
+00:00:00.351239 Build Type: release
+00:00:00.351243 OS Product: Windows 11
+00:00:00.351244 OS Release: 10.0.22621
+00:00:00.351244 OS Service Pack: 
+00:00:00.365644 DMI Product Name: h8-1090t
+00:00:00.369774 DMI Product Version:                                 
+00:00:00.369788 Firmware type: BIOS
+00:00:00.369794 Host RAM: 16375MB (15.9GB) total, 6998MB (6.8GB) available
+00:00:00.369798 Executable: C:\Program Files\Oracle\VirtualBox\VirtualBoxVM.exe
+00:00:00.369799 Process ID: 12320
+00:00:00.369799 Package type: WINDOWS_64BITS_GENERIC
+00:00:00.369800 Windows Features:
+00:00:00.369800   Core Isolation (Memory Integrity): ENABLED
+00:00:00.370827 GUI: UIMediumEnumerator: Initial medium-enumeration finished!
+00:00:00.394791 GUI: UIMediumEnumerator: Medium-enumeration started...
+00:00:01.391322 GUI: UIFrameBufferPrivate::performResize: Size=640x480, Using fallback buffer since no source bitmap is provided
+00:00:01.395163 DnD: User Interface Privilege Isolation (UIPI) is running with SECURITY_MANDATORY_MEDIUM_RID
+00:00:01.395745 GUI: UIMachineViewScale::resendSizeHint: Restoring guest size-hint for screen 0 to 1280x1024
+00:00:01.512309 GUI: UIMediumEnumerator: Medium-enumeration finished!
+00:00:01.512355 GUI: UIFrameBufferPrivate::performResize: Size=1024x768, Using fallback buffer since no source bitmap is provided
+00:00:01.514762 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:00:12.789393 GUI: UISession::sltAdditionsChange: GA state doesn't really changed, still notifying listeners.
+00:00:12.815749 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:00:13.495630 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:00:13.498031 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:00:14.055704 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:00:14.146974 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:06:38.503584 GUI: UISession::sltAdditionsChange: GA state doesn't really changed, still notifying listeners.
+00:06:38.577645 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:06:38.641815 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:06:38.642304 GUI: UISession::sltAdditionsChange: GA state doesn't really changed, still notifying listeners.
+00:08:17.395741 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:08:17.799390 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:08:18.303985 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:08:19.701381 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:08:19.892048 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:13:15.901086 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:13:21.936485 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:13:35.645112 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:13:37.079826 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:13:37.302532 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:13:37.302945 GUI: UISession::sltAdditionsChange: GA state doesn't really changed, still notifying listeners.
+00:13:37.322934 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:13:38.686160 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:13:38.750059 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:13:40.547983 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:13:40.548573 GUI: UISession::sltAdditionsChange: GA state doesn't really changed, still notifying listeners.
+00:14:58.969209 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:14:59.362647 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:14:59.581602 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:15:01.197421 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:15:01.319242 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:19:20.827597 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:19:21.894347 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:19:22.721968 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:19:22.968866 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:19:24.564672 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:19:24.565118 GUI: UISession::sltAdditionsChange: GA state doesn't really changed, still notifying listeners.
+00:21:35.471780 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:23:03.451780 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:23:03.452666 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:38:59.949519 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:39:03.938994 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:39:03.939838 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:44:45.840280 GUI: UIMediumEnumerator: Medium-enumeration finished!
+00:44:47.237206 GUI: UIMediumEnumerator: Medium-enumeration finished!
+00:50:22.165378 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:50:22.171848 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:50:22.172188 GUI: UISession::sltAdditionsChange: GA state doesn't really changed, still notifying listeners.
+00:50:22.293857 GUI: UIMachineLogic: Guest-screen count changed
+00:50:22.305102 GUI: UIFrameBufferPrivate::performResize: Size=1024x768, Using fallback buffer since no source bitmap is provided
+00:50:34.582626 GUI: UIFrameBufferPrivate::performResize: Size=1024x768, Using fallback buffer since no source bitmap is provided
+00:50:44.539771 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:50:44.540212 GUI: UISession::sltAdditionsChange: GA state doesn't really changed, still notifying listeners.
+00:50:44.540614 GUI: UISession::sltAdditionsChange: GA state doesn't really changed, still notifying listeners.
+00:50:44.542014 GUI: UISession::sltAdditionsChange: GA state doesn't really changed, still notifying listeners.
+00:51:07.892976 GUI: UISession::sltAdditionsChange: GA state doesn't really changed, still notifying listeners.
+00:51:07.954601 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+00:51:08.964080 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:51:08.966893 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:51:11.957459 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+00:51:12.685860 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+01:03:32.562026 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+02:16:25.944040 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+02:16:56.347552 GUI: UISession::sltAdditionsChange: GA state doesn't really changed, still notifying listeners.
+02:16:56.405786 GUI: UISession::sltAdditionsChange: GA state really changed, notifying listeners.
+02:21:21.769880 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+02:39:05.212403 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
+02:44:02.718323 GUI: UIFrameBufferPrivate::performResize: Size=1280x1024, Using fallback buffer since no source bitmap is provided
