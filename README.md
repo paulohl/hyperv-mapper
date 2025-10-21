@@ -1,3 +1,44 @@
+# ⚙️ hyperv-mapper  
+**Automation scripts for Hyper-V, NAT networking, and VirtualBox stability watchdogs**  
+<sub>by [Paulo H. Leocadio](https://github.com/paulohl) • Zinnia AI Software Engineering & Digital Design</sub>
+
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/PowerShell-blue?logo=powershell&logoColor=white" alt="PowerShell Badge"/>
+  <img src="https://img.shields.io/badge/Windows-11-0078D6?logo=windows11&logoColor=white" alt="Windows Badge"/>
+  <img src="https://img.shields.io/badge/VirtualBox-7.x-183A61?logo=virtualbox&logoColor=white" alt="VirtualBox Badge"/>
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="License Badge"/>
+</p>
+
+> Self-contained automation for lab and test environments —  
+> creating NAT-enabled Hyper-V networks with custom RDP ports and a resilient VirtualBox watchdog subsystem.
+
+---
+
+## 🧭 Overview
+
+`hyperv-mapper` provides PowerShell automation for two core tasks:
+
+1. **Hyper-V NAT + RDP Mapping** — fully isolated VM networks with host-to-guest RDP access.  
+2. **VirtualBox Watchdog Subsystem** — a crash-resistant task scheduler that keeps VirtualBox VMs alive, logs failures, and auto-recovers them.
+
+Ideal for researchers, cloud architects, and developers running multi-hypervisor or nested virtualization labs.
+
+---
+
+## 📁 Folder Structure
+
+```text
+hyperv-mapper/
+├─ host/        → Hyper-V setup scripts
+├─ guest/       → Guest-side RDP enablement
+├─ utils/       → Watchdog, automation helpers
+├─ docs/        → Reference & diagnostic notes
+├─ .gitignore
+└─ README.md
+```
+
 # 🧩 VirtualBox Watchdog Subsystem       
 
 The VirtualBox Watchdog is an optional utility designed for developers running nested virtualization or unstable VM environments (e.g., Windows + Hyper-V + VirtualBox mixed labs).
